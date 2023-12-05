@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #game-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-color: #87CEEB; /* Sky Blue */
+        }
+
+        #brick {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('brick.png'); /* Replace with the path to your brick image */
+            background-size: cover;
+            cursor: pointer;
+            transition: transform 0.5s linear;
+        }
+
+        #tom-cat {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-image: url('tom-cat.png'); /* Replace with the path to your Tom Cat image */
+            background-size: cover;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        #pop-up {
+            position: absolute;
+            font-size: 24px;
+            color: red;
+            display: none;
+        }
+    </style>
+    <title>Throwing Brick Game</title>
+</head>
+<body>
+    <div id="game-container">
+        <div id="brick"></div>
+        <div id="tom-cat"></div>
+        <div id="pop-up"></div>
+    </div>
+
+    <script>
+        const brick = document.getElementById('brick');
+        const tomCat = document.getElementById('tom-cat');
+        const popUp = document.getElementById('pop-up');
+
+        brick.addEventListener('mousedown', startThrow);
+
+        function startThrow(e) {
+            document.addEventListener('mousemove', moveBrick);
+            document.addEventListener('mouseup', endThrow);
+
+            function moveBrick(e) {
+                brick.style.left = e.clientX - brick.offsetWidth / 2 + 'px';
+                brick.style.top = e.clientY - brick.offsetHeight / 2 + 'px';
+            }
+
+            function endThrow() {
+                document.removeEventListener('mousemove', moveBrick);
+                document.removeEventListener('mouseup', endThrow);
+
+                // Calculate if the brick hits Tom Cat
+                const brickRect = brick.getBoundingClientRect();
+                const tomCatRect = tomCat.getBoundingClientRect();
+
+                if (
+                    brickRect.left < tomCatRect.right &&
+                    brickRect.right > tomCatRect.left &&
+                    brickRect.top < tomCatRect.bottom &&
+                    brickRect.bottom > tomCatRect.top
+                ) {
+                    // If the brick hits Tom Cat, react accordingly
+                    tomCat.style.transform = 'scale(1.2)';
+                    popUp.innerText = 'Bang!';
+                    popUp.style.left = tomCatRect.left + 'px';
+                    popUp.style.top = tomCatRect.top - 30 + 'px';
+                    popUp.style.display = 'block';
+
+                    setTimeout(() => {
+                        tomCat.style.transform = 'scale(1)';
+                        popUp.style.display = 'none';
+                    }, 500);
+                }
+
+                // Reset brick position and add spinning animation
+                brick.style.left = '0';
+                brick.style.top = '0';
+                brick.style.transform = 'rotate(0deg)';
+                setTimeout(() => {
+                    brick.style.transition = 'transform 2s linear';
+                    brick.style.transform = 'rotate(360deg)';
+                }, 50);
+            }
+        }
+    </script>
+</body>
+</html>
