@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Game Title</title>
-    <!-- Include Ruffle.js -->
+    <!-- Include Ruffle.js over HTTPS -->
     <script type="module" src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 </head>
 <body>
@@ -32,7 +32,7 @@
             // Append the player to the container
             container.appendChild(player);
             // Load the SWF file from the specified URL
-            player.load("final.swf");
+            player.load("https://savehomeless.org/final.swf");
         });
     </script>
 </body>
