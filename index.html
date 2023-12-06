@@ -5,18 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Game Title</title>
     <!-- Include Ruffle.js -->
-    <script type="module" src="ruffle.js"></script>
+    <script type="module" src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 </head>
 <body>
     <!-- Container for the Ruffle player -->
-    <div id="ruffle-container" style="width: width_in_pixels; height: height_in_pixels;"></div>
+    <div id="container" style="width: 700px; height: 400px;"></div>
 
-    <script type="module">
-        // Use Ruffle to embed your SWF file
-        window.addEventListener('DOMContentLoaded', () => {
-            const ruffleContainer = document.getElementById('ruffle-container');
-            ruffleContainer.setAttribute('data-src', 'final.swf');
-            ruffleContainer.setAttribute('data-ruffle', '');
+    <!-- RufflePlayer configuration and SWF loading script -->
+    <script>
+        // Set RufflePlayer configuration
+        window.RufflePlayer = window.RufflePlayer || {};
+        window.RufflePlayer.config = {
+            "autoplay": "on",
+            "splashScreen": false,
+            "unmuteOverlay": "hidden"
+        };
+
+        // Event listener for when the window is loaded
+        window.addEventListener("load", () => {
+            // Create a new RufflePlayer instance
+            const ruffle = window.RufflePlayer.newest();
+            // Create a player instance
+            const player = ruffle.createPlayer();
+            // Get the container element by its ID
+            const container = document.getElementById("container");
+            // Append the player to the container
+            container.appendChild(player);
+            // Load the SWF file from the specified URL
+            player.load("final.swf");
         });
     </script>
 </body>
