@@ -5,39 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Flash Game</title>
     <!-- Include Ruffle.js -->
-    <script type="module" src="https://cdn.ruffle.rs/stable/ruffle.js"></script>
+    <script type="module" src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 </head>
 <body>
     <!-- Container for the Ruffle player -->
-    <div id="ruffle-container" style="width: 800px; height: 230px;"></div>
+    <div id="ruffle-container" style="width: 800px; height: 600px;"></div>
 
     <!-- RufflePlayer configuration and SWF loading script -->
     <script>
-        // Set RufflePlayer configuration
         window.RufflePlayer = window.RufflePlayer || {};
-        window.RufflePlayer.config = {
-            "autoplay": "on",
-            "splashScreen": false,
-            "unmuteOverlay": "hidden"
-        };
-
-        // Event listener for when the window is loaded
-        window.addEventListener('load', () => {
-            // Create a new RufflePlayer instance
-            const ruffle = window.RufflePlayer();
-            
-            if (ruffle) {
-                // Create a player instance
-                const player = ruffle.createPlayer();
-                // Get the container element by its ID
-                const container = document.getElementById('ruffle-container');
-                // Append the player to the container
-                container.appendChild(player);
-                // Load the SWF file from your server
-                player.load('https://savehomeless.org/final.swf');
-            } else {
-                console.error('RufflePlayer.newest() is not available.');
-            }
+        window.addEventListener("load", (event) => {
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            const container = document.getElementById("ruffle-container");
+            container.appendChild(player);
+            player.load("https://savehomeless.org/final.swf"); 
         });
     </script>
 </body>
