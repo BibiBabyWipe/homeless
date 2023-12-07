@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Flash Game</title>
+    <title>Homeless Brick</title>
     <!-- Include Ruffle.js -->
     <script type="module" src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <style>
@@ -12,11 +12,21 @@
             padding: 0;
             background: #ccc;
             font-family: 'Roboto Condensed', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column; /* Center content vertically and stack in a column */
         }
-
+        #ruffle-container {
+            width: 600px;
+            height: 700px;
+            margin: auto; /* Center the container horizontally */
+            margin-bottom: 20; /* Add some spacing between the game and buttons */
+        }
         ul {
             position: absolute;
-            top: 50%;
+            top: 80%;
             left: 50%;
             transform: translate(-50%, -50%);
             display: flex;
@@ -149,7 +159,7 @@
 </head>
 <body>
     <!-- Container for the Ruffle player -->
-    <div id="ruffle-container" style="width: 800px; height: 600px;"></div>
+    <div id="ruffle-container"></div>
 
     <!-- RufflePlayer configuration and SWF loading script -->
     <script>
@@ -168,7 +178,7 @@
         <li>
             <a href="#">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
-                <span> - Facebook</span>
+                <span> - Telegram</span>
             </a>
         </li>
         <li>
@@ -180,13 +190,13 @@
         <li>
             <a href="#">
                 <i class="fa fa-google-plus" aria-hidden="true"></i>
-                <span> - Google</span>
+                <span> - Chart</span>
             </a>
         </li>
         <li>
             <a href="#">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
-                <span> - Instagram</span>
+                <span> - Buy $BRICK</span>
             </a>
         </li>
     </ul>
