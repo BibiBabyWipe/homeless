@@ -18,23 +18,28 @@
             height: 100vh;
             flex-direction: column; /* Center content vertically and stack in a column */
         }
+        #header {
+            color: #fff; /* White color */
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+        }
+
         #header h1 {
             font-family: 'Pacifico', cursive;
-            color: #FFD700; /* Gold color */
+            color: #3498db; /* Button color (blue) */
             margin: 0;
             cursor: pointer;
-            transition: transform 0.2s ease-in-out;
+            transition: text-shadow 0.2s ease-in-out;
             display: inline-block;
         }
 
-        #header h1:hover {
-            transform: scale(1.1); /* Add a subtle scale effect on hover */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow on hover */
+        #header p {
+            color: #27ae60; /* Button color (green) */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
         }
 
-        #header p {
-            color: #00FF00; /* Green color */
-        }
         #ruffle-container {
             width: 600px;
             height: 700px;
@@ -199,25 +204,25 @@
         <li>
             <a href="https://t.me/Bricks_ERC20">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
-                <span> - Telegram</span>
+                <span>📞 - Telegram</span>
             </a>
         </li>
         <li>
             <a href="https://twitter.com/Bricks_ERC20">
                 <i class="fa fa-twitter" aria-hidden="true"></i>
-                <span> - Twitter</span>
+                <span>🕊️ - Twitter</span>
             </a>
         </li>
         <li>
             <a href="https://dexscreener.com/ethereum/0x0000">
                 <i class="fa fa-google-plus" aria-hidden="true"></i>
-                <span> - Chart</span>
+                <span>📈 - Chart</span>
             </a>
         </li>
         <li>
             <a href="https://app.uniswap.org/swap?outputCurrency=0x0000">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
-                <span> - Buy $BRICK</span>
+                <span>💰 - Buy $BRICK</span>
             </a>
         </li>
     </ul>
