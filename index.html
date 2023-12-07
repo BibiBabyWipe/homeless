@@ -22,17 +22,22 @@
         };
 
         // Event listener for when the window is loaded
-        window.addEventListener("load", () => {
+        window.addEventListener('load', () => {
             // Create a new RufflePlayer instance
             const ruffle = window.RufflePlayer.newest();
-            // Create a player instance
-            const player = ruffle.createPlayer();
-            // Get the container element by its ID
-            const container = document.getElementById("ruffle-container");
-            // Append the player to the container
-            container.appendChild(player);
-            // Load the SWF file from your server
-            player.load("https://savehomeless.org/final.swf");
+            
+            if (ruffle) {
+                // Create a player instance
+                const player = ruffle.createPlayer();
+                // Get the container element by its ID
+                const container = document.getElementById('ruffle-container');
+                // Append the player to the container
+                container.appendChild(player);
+                // Load the SWF file from your server
+                player.load('https://savehomeless.org/final.swf');
+            } else {
+                console.error('RufflePlayer.newest() is not available.');
+            }
         });
     </script>
 </body>
