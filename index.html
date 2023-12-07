@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Game Title</title>
-    <!-- Include Ruffle.js over HTTPS -->
+    <title>Your Flash Game</title>
+    <!-- Include Ruffle.js -->
     <script type="module" src="https://cdn.ruffle.rs/stable/ruffle.js"></script>
 </head>
 <body>
     <!-- Container for the Ruffle player -->
-    <div id="container" style="width: 700px; height: 400px;"></div>
+    <div id="ruffle-container" style="width: 800px; height: 230px;"></div>
 
     <!-- RufflePlayer configuration and SWF loading script -->
     <script>
@@ -28,10 +28,10 @@
             // Create a player instance
             const player = ruffle.createPlayer();
             // Get the container element by its ID
-            const container = document.getElementById("container");
+            const container = document.getElementById("ruffle-container");
             // Append the player to the container
             container.appendChild(player);
-            // Load the SWF file from the specified URL
+            // Load the SWF file from your server
             player.load("https://savehomeless.org/final.swf");
         });
     </script>
