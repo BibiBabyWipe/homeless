@@ -18,6 +18,23 @@
             height: 100vh;
             flex-direction: column; /* Center content vertically and stack in a column */
         }
+        #header h1 {
+            font-family: 'Pacifico', cursive;
+            color: #FFD700; /* Gold color */
+            margin: 0;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            display: inline-block;
+        }
+
+        #header h1:hover {
+            transform: scale(1.1); /* Add a subtle scale effect on hover */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow on hover */
+        }
+
+        #header p {
+            color: #00FF00; /* Green color */
+        }
         #ruffle-container {
             width: 600px;
             height: 700px;
